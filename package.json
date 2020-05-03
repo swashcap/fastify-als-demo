@@ -1,0 +1,7 @@
+{
+  "name": "fastify-als-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Cory Reed",
+  "license": "MIT"
+}
