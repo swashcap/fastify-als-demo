@@ -5,9 +5,35 @@ import fastifyCors from 'fastify-cors';
 import fastifyHealthcheck from 'fastify-healthcheck';
 import fastifyHelmet from 'fastify-helmet';
 import fastifyStatic from 'fastify-static';
+import http from 'http';
 import path from 'path';
 
-const server = fastify();
+import { createStore, loggerContext } from './loggerContext';
+import { logger } from './logger';
+import { mockApi } from './mockApi';
+
+export const server = fastify({
+  /**
+   * Add a custom logger.
+   * {@link https://www.fastify.io/docs/latest/Server/#logger}
+   */
+  logger,
+
+  /**
+   * Customize the server.
+   * {@link https://www.fastify.io/docs/latest/Server/#serverfactory}
+   */
+  serverFactory(handler) {
+    const server = http.createServer((req, res) => {
+      loggerContext.run(createStore(req.headers['x-request-id']), () => {
+        handler(req, res);
+      });
+    });
+
+    return server;
+  }
+});
+
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 server.register(fastifyCors);
@@ -19,7 +45,7 @@ server.register(fastifyStatic, {
 });
 
 server.get('/', async () => {
-  return 'Hello, world!';
+  return mockApi();
 });
 
 server.listen(port, (error, address) => {
@@ -28,5 +54,5 @@ server.listen(port, (error, address) => {
     process.exit(1);
   }
 
-  console.log(`Server listening at ${address}`);
+  server.log.debug(`Server listening at ${address}`);
 });

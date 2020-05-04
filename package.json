@@ -10,12 +10,16 @@
     "fastify-healthcheck": "^2.1.0",
     "fastify-helmet": "^3.0.2",
     "fastify-static": "^2.7.0",
-    "hard-rejection": "^2.1.0"
+    "hard-rejection": "^2.1.0",
+    "pino": "^6.2.1",
+    "uuid": "^8.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/node": "^13.13.4",
+    "@types/pino": "^6.0.0",
+    "@types/uuid": "^7.0.3",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
     "prettier": "^2.0.5",
