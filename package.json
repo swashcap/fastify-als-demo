@@ -1,18 +1,26 @@
 {
   "name": "fastify-als-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Cory Reed",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "fastify": "^2.14.0",
+    "hard-rejection": "^2.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@types/node": "^13.13.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
   },
   "scripts": {
-    "format": "prettier --write '*.js'"
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "format": "prettier --write '*.js' 'src/**/*.ts'",
+    "start": "node dist/index.js"
   }
 }
