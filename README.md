@@ -36,7 +36,7 @@ ab -n 1000 -c 10 "http://127.0.0.1:3000/"
 ## Setup
 
 With [Node.js](https://nodejs.org/en/) (>=14.1.x) and
-[yalocally:rn](https://yarnpkg.com) (>=1.22.x) installed:
+[yarn](https://yarnpkg.com) (>=1.22.x) installed:
 
 1. Install dependencies:
 
