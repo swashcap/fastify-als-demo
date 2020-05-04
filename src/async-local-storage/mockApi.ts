@@ -5,34 +5,34 @@ import { logger } from './logger';
 const delay = promisify(setTimeout);
 
 const mockApiLogger = logger.child({
-  mockApi: '1.0.0'
+  mockApi: '1.0.0',
 });
 
 export const mockApi = async () => {
   mockApiLogger.debug({
-    message: 'start'
+    message: 'start',
   });
 
   await delay(100);
 
-  if (Math.random() > .9) {
-    const error = new Error('mockApi failed')
+  if (Math.random() > 0.9) {
+    const error = new Error('mockApi failed');
 
     mockApiLogger.error({
       error,
-      message: 'error'
+      message: 'error',
     });
 
     throw error;
   }
 
   mockApiLogger.info({
-    message: 'end'
+    message: 'end',
   });
 
   return {
     data: {
-      mock: 'mock'
-    }
-  }
-}
+      mock: 'mock',
+    },
+  };
+};

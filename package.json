@@ -1,7 +1,7 @@
 {
   "name": "fastify-als-demo",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "dist/async-local-storage/index.js",
   "author": "Cory Reed",
   "license": "MIT",
   "dependencies": {
@@ -29,6 +29,6 @@
     "build": "tsc",
     "clean": "rm -rf dist",
     "format": "prettier --write '*.js' '{src,types}/**/*.ts'",
-    "start": "node dist/index.js"
+    "start": "node dist/async-local-storage/index.js"
   }
 }

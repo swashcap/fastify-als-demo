@@ -31,7 +31,7 @@ export const server = fastify({
     });
 
     return server;
-  }
+  },
 });
 
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
@@ -41,12 +41,10 @@ server.register(fastifyHealthcheck);
 server.register(fastifyHelmet);
 server.register(fastifyStatic, {
   prefix: '/public/',
-  root: path.join(__dirname, '..', 'public'),
+  root: path.join(__dirname, '..', '..', 'public'),
 });
 
-server.get('/', async () => {
-  return mockApi();
-});
+server.get('/', mockApi);
 
 server.listen(port, (error, address) => {
   if (error) {
