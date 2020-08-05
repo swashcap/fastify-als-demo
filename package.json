@@ -5,7 +5,7 @@
   "author": "Cory Reed",
   "license": "MIT",
   "dependencies": {
-    "fastify": "^2.14.0",
+    "fastify": "^2.15.1",
     "fastify-cors": "^3.0.3",
     "fastify-healthcheck": "^2.1.0",
     "fastify-helmet": "^3.0.2",
